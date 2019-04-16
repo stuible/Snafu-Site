@@ -1,12 +1,13 @@
 module.exports = {
   siteName: `Snafu`,
   titleTemplate: `%s - Home`,
+  icon: 'src/assets/images/favicon.png',
 
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/*.md',
+        path: 'src/content/*.md',
         typeName: 'Content',
         route: '/:slug'
       }
