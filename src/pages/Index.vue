@@ -92,4 +92,10 @@ export default {
     stroke: black;
   }
 }
+
+h1 {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
