@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+h1 {
+    // text-transform: uppercase;
+    font-family: sans-serif;
+
+    // font-weight: 400;
+    font-size: 3.5em;
+
+    // letter-spacing: 0.4em;
+    color: black;
+    cursor: default;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}

@@ -1,5 +1,7 @@
 import DefaultLayout from '~/layouts/Default.vue'
 
+require('typeface-fira-sans')
+
 import 'normalize.css'
 import '~/assets/scss/_base.scss'
 

@@ -1,32 +1,52 @@
 .container {
     margin: 0 auto;
     max-width: 100%;
-    padding: 0 25px;
+    padding: 25px;
+}
 
-    @include breakpoint(phone) {
+body {
+    font-size: 13px;
+}
+
+@include breakpoint(phone) {
+    .container {
         max-width: 100%;
-        padding: 0 25px;
     }
 
+    body {
+        font-size: 15px;
+    }
+}
 
-    @include breakpoint(phablet) {
+
+@include breakpoint(phablet) {
+    .container {
         max-width: map-get($breakpoints, phablet) - 100;
-        padding: 0;
     }
+}
 
 
-    @include breakpoint(tablet) {
+@include breakpoint(tablet) {
+    .container {
         max-width: map-get($breakpoints, tablet) - 100;
-        padding: 0;
     }
 
+    body {
+        font-size: 16px;
+    }
+}
 
-    @include breakpoint(desktop) {
+
+@include breakpoint(desktop) {
+    .container {
         max-width: map-get($breakpoints, desktop) - 100;
     }
 
+}
 
-    @include breakpoint(desktophd) {
+
+@include breakpoint(desktophd) {
+    .container {
         max-width: map-get($breakpoints, desktophd) - 100;
     }
 }

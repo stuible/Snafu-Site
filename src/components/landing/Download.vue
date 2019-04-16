@@ -1,65 +1,156 @@
 <template>
-<div>
- <a :href="download.url" target="_blank">Download for {{download.name}}</a>
-</div>
+  <div id="download">
+    <div id="download-button">
+      <a :href="download.url" target="_blank">Download for {{download.name}}</a>
+    </div>
+    <div id="other-downloads">
+      <button id="show-other" @click="showOtherDownloads = !showOtherDownloads">other platforms</button>
+
+      <div id="other" :class="{show: showOtherDownloads}">
+        <ul>
+          <li v-for="(otherDownload, index) in otherDownloads" v-bind:key="index">
+            <a :href="otherDownload.url">{{otherDownload.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <down-icon
+        @click="showOtherDownloads = !showOtherDownloads"
+        class="indicator"
+        :class="{flip: showOtherDownloads}"
+      />
+    </div>
+  </div>
 </template>
 
 <static-query>
 query Downloads {
   content (path: "/downloads") {
-   mac { url },
-   windows { url }, 
-   linux { url }
+   mac { url, name },
+   windows { url, name }, 
+   linux { url, name }
   }
 }
 </static-query>
 
 
 <script>
-const { detect } = require('detect-browser');
+import DownIcon from "~/assets/images/icons/downarrow.svg";
+const { detect } = require("detect-browser");
 const browser = detect();
 export default {
-    data(){
-        return {
-            os: browser.os
-        }
+  components: {
+    DownIcon
+  },
+  data() {
+    return {
+      os: browser.os,
+      showOtherDownloads: false
+    };
+  },
+  computed: {
+    download() {
+      switch (this.os) {
+        case "Mac OS":
+        case "Mac OS X":
+          return {
+            name: this.$static.content.mac.name,
+            url: this.$static.content.mac.url
+          };
+          break;
+        case "Windows Vista":
+        case "Windows 7":
+        case "Windows 8.1":
+        case "Windows 8":
+        case "Windows 10":
+          return {
+            name: this.$static.content.windows.name,
+            url: this.$static.content.windows.url
+          };
+          break;
+        case "Linux":
+          break;
+          return {
+            name: this.$static.content.linux.name,
+            url: this.$static.content.linux.url
+          };
+        default:
+          return false;
+          break;
+      }
     },
-    computed: {
-        download(){
-            switch (this.os) {
-                case 'Mac OS':
-                case 'Mac OS X':
-                    return {
-                        name: 'macOS',
-                        url: this.$static.content.mac.url,
-                    };
-                    break;
-                case 'Windows Vista':
-                case 'Windows 7':
-                case 'Windows 8.1':
-                case 'Windows 8':
-                case 'Windows 10':
-                    return {
-                        name: 'Windows',
-                        url: this.$static.content.windows.url,
-                    };
-                    break;
-                case 'Linux':
-                    break;
-                    return {
-                        name: 'Linux',
-                        url: this.$static.content.linux.url,
-                    };
-                default:
-                    return false;
-                    break;
-            }
-        }
+    otherDownloads() {
+      const downloads = [
+        this.$static.content.windows,
+        this.$static.content.mac,
+        this.$static.content.linux
+      ];
+      return downloads.filter(download => download.name !== this.download.name);
     }
-}
-
+  }
+};
 </script>
 
 <style lang="scss">
+#download {
+  // background-color: white;
+  padding: 2em;
+  border-radius: $border-radius;
+  text-align: center;
 
+  #download-button {
+    border-bottom: 5px black solid;
+    padding-bottom: 1em;
+    margin-bottom: 3em;
+    display: inline-block;
+
+    a {
+      font-weight: 700;
+    }
+  }
+
+  #show-other {
+    display: block;
+    margin: 0 auto;
+    font-size: 12px;
+  }
+
+  #other {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 200ms linear, opacity 200ms linear, transform 200ms linear;
+    transform: translateY(-10px);
+    opacity: 0;
+
+    &.show {
+      max-height: 100px;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    ul {
+        margin: 1em 0;
+    }
+
+    li {
+        margin: 0.5em 0;
+        font-weight: 700;
+
+        a:hover {
+            border-bottom: 2px solid black;
+        }
+    }
+  }
+}
+
+#other-downloads {
+  svg.indicator {
+    width: 40px;
+    cursor: pointer;
+    transition: top 200ms linear;
+
+    &.flip {
+      transform: scaleY(-1);
+    }
+  }
+}
 </style>
