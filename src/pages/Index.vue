@@ -1,7 +1,8 @@
 <template>
-  <Layout class="home">
-    <h3>{{$page.content.title}}</h3>
+  <Layout id="landing">
+    <h1>{{$page.content.title}}</h1>
     <logo id="logo"/>
+    <download />
   </Layout>
 </template>
 
@@ -18,9 +19,11 @@ query Landing {
 
 <script>
 import Logo from "~/assets/images/Snafu.svg";
+import Download from "~/components/landing/Download.vue";
 export default {
   components: {
-    Logo
+    Logo,
+    Download
   }
 };
 </script>
@@ -28,10 +31,19 @@ export default {
 
 
 <style lang="scss">
+#landing {
+  text-align: center;
+}
+
 #logo {
-  width: 100%;
+  width: 80%;
+  max-width: 500px;
   g {
     stroke: white;
   }
+}
+
+h1{
+  text-transform: uppercase;
 }
 </style>
