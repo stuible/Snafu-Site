@@ -69,7 +69,7 @@ export default {
   // height: 100px;
   width: 100%;
   border-radius: 30%;
-  border: white solid 2px;
+  // border: white solid 2px;
   position: relative;
   padding-top: 100%;
 }
