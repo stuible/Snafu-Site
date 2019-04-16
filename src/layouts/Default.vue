@@ -33,9 +33,4 @@ html {
   background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
   min-height: 100%;
 }
-
-.container{
-  max-width: 1080px;
-  margin: 0 auto;
-}
 </style>
