@@ -8,6 +8,7 @@
       </div>
     </div>
     <h1 @mouseenter="startGlitch" @mouseleave="stopGlitch">{{glitchedTitle}}</h1>
+    <h2>αlphα 0.1.0</h2>
     <download/>
   </Layout>
 </template>
@@ -97,5 +98,12 @@ h1 {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: 0.9em;
 }
 </style>
