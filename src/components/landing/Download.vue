@@ -1,7 +1,8 @@
 <template>
   <div id="download">
     <div id="download-button">
-      <a :href="download.url" target="_blank">Download for {{download.name}}</a>
+      <a v-if="download" :href="download.url" target="_blank">Download for {{download.name}}</a>
+      <div v-else>Not Available For {{this.os}}</div>
     </div>
     <div id="other-downloads">
       <button id="show-other" @click="showOtherDownloads = !showOtherDownloads">other platforms</button>
