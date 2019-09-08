@@ -3,16 +3,18 @@
     <header class="header">
         <div class="container">
             <nav>
-                <g-link class="heading-link" to="/">Home</g-link> | 
-                <g-link class="heading-link" to="/about">About</g-link>  | 
-                <g-link class="heading-link" to="/help">Help</g-link>  | 
+                <g-link class="heading-link" to="/">Home</g-link> |
+                <g-link class="heading-link" to="/about">About</g-link> |
+                <g-link class="heading-link" to="/help">Help</g-link> |
                 <g-link class="heading-link" to="/changelog">Changelog</g-link>
             </nav>
         </div>
     </header>
-    <main class="container">
-        <slot />
-    </main>
+    <transition name="fade" appear>
+        <main class="container">
+            <slot />
+        </main>
+    </transition>
 </div>
 </template>
 
@@ -32,26 +34,34 @@ export default {
 </script>
 
 <style lang="scss">
+// .fade-enter-active {
+//     transition: opacity .25s;
+// }
+
+// .fade-enter {
+//     opacity: 0;
+// }
+
 .homepage main.container {
     margin-top: 7em;
     display: flex;
 }
 
 ::selection {
-  background: $colourLight;
-  color: white;
+    background: $colourLight;
+    color: white;
 }
 
 html {
     background-color: $colourDark;
     color: #a39dc1;
     min-height: 100%;
-    
+
 }
 
 nav {
-  margin-top: 2em;
-  color: $colourMedium;
+    margin-top: 2em;
+    color: $colourMedium;
 }
 
 main {
