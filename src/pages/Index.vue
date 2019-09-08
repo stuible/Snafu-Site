@@ -1,16 +1,22 @@
 <template>
-  <Layout>
-    <div id="icon-container">
-      <div id="icon-wrapper">
-        <div id="icon">
-          <logo id="logo"/>
+<Layout class="homepage">
+    <div class="col-6">
+        <div id="icon-container">
+            <div id="icon-wrapper">
+                <div id="icon">
+                    <logo id="logo" />
+                </div>
+            </div>
         </div>
-      </div>
+        <h1 @mouseenter="startGlitch" @mouseleave="stopGlitch">{{glitchedTitle}}</h1>
+        <h2>βeta 0.1.0</h2>
+        <download />
     </div>
-    <h1 @mouseenter="startGlitch" @mouseleave="stopGlitch">{{glitchedTitle}}</h1>
-    <h2>αlphα 0.1.0</h2>
-    <download/>
-  </Layout>
+
+    <div class="col align-end">
+      <g-image id="screenshot" src="~/assets/images/screenshot.png" alt="Screenshot of Snafu"/>
+    </div>
+</Layout>
 </template>
 
 <page-query>
@@ -23,87 +29,108 @@ query Landing {
 
 <script>
 var zalgo = require("to-zalgo");
-import Logo from "~/assets/images/Snafu.svg";
+import Logo from "~/assets/images/altSnafu.svg";
 import Download from "~/components/landing/Download.vue";
 export default {
-  components: {
-    Logo,
-    Download
-  },
-  data() {
-    return {
-      glitchedTitle: "",
-      titleHover: false
-    };
-  },
-  methods: {
-    glitchTitle() {
-      if (this.titleHover) {
-        this.glitchedTitle = zalgo(this.$page.content.title);
-        setTimeout(this.glitchTitle, 50);
-      }
-      else this.glitchedTitle = this.$page.content.title;
+    components: {
+        Logo,
+        Download
     },
-    startGlitch() {
-      this.titleHover = true;
-      this.glitchTitle();
+    data() {
+        return {
+            glitchedTitle: "",
+            titleHover: false
+        };
     },
-    stopGlitch() {
-      this.titleHover = false;
+    methods: {
+        glitchTitle() {
+            if (this.titleHover) {
+                // this.glitchedTitle = zalgo(this.$page.content.title);
+                setTimeout(this.glitchTitle, 50);
+            } else this.glitchedTitle = this.$page.content.title;
+        },
+        startGlitch() {
+            this.titleHover = true;
+            this.glitchTitle();
+        },
+        stopGlitch() {
+            this.titleHover = false;
+        }
+    },
+    mounted() {
+        this.glitchedTitle = this.$page.content.title;
     }
-  },
-  mounted() {
-    this.glitchedTitle = this.$page.content.title;
-  }
 };
 </script>
 
-
-
 <style lang="scss">
+.homepage main.container {
+  margin-top: 7em;
+  display: flex;
+}
 #icon-container {
-  max-width: 400px;
-  margin: 0 auto;
+    max-width: 400px;
+    // margin: 0 auto;
 }
 
 #icon-wrapper {
-  // height: 100px;
-  width: 100%;
-  border-radius: 30%;
-  // border: white solid 2px;
-  position: relative;
-  padding-top: 100%;
+    // height: 100px;
+    width: 100%;
+    border-radius: 30%;
+    // border: white solid 2px;
+    position: relative;
+    padding-top: 100%;
 }
 
 #icon {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 10%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    // padding: 10%;
+    max-width: 10em;
 }
 
 #logo {
-  // width: 80%;
-  padding-top: 10%;
-  g {
-    stroke: black;
-  }
+    // width: 80%;
+    // padding-top: 10%;
+
+    g {
+        fill: $colourMedium;
+    }
 }
 
 h1 {
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
+    width: fit-content;
+    margin-bottom: 0;
+    color: $colourMedium;
+    transition: color 200ms linear;
+    // z-index: 100;
+
+    &:hover {
+        color: $colourLight;
+    }
 }
 
 h2 {
-  margin: 0;
-  margin-bottom: 1em;
-  font-size: 0.9em;
+    margin: 0;
+    margin-bottom: 3em;
+    font-size: 0.9em;
+    color: $colourMedium;
+}
+
+#screenshot{
+  width: 100%;
+  max-width: 600px;
+  text-align: right;
+  opacity: 0.5;
+  transition: opacity 200ms linear;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 </style>

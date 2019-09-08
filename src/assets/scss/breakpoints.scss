@@ -3,7 +3,7 @@ $breakpoints: (
   phablet: 750px, // Obnoxiously Large Phones
   tablet: 950px, // Tablets
   desktop: 1080px, // Desktops
-  desktophd: 1200px // Large Desktops
+  desktophd: 1400px // Large Desktops
 );
 
 @mixin breakpoint($breakpoint) {

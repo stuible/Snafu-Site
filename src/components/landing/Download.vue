@@ -1,9 +1,9 @@
 <template>
   <div id="download">
-    <div id="download-button">
-      <a v-if="download" :href="download.url" target="_blank">Download for {{download.name}}</a>
+    <a id="download-button" :href="download.url" target="_blank">
+      <div v-if="download">Download for {{download.name}}</div>
       <div v-else>Not Available For {{this.os}}</div>
-    </div>
+    </a>
     <div id="other-downloads">
       <button id="show-other" @click="showOtherDownloads = !showOtherDownloads">other platforms</button>
 
@@ -14,11 +14,11 @@
           </li>
         </ul>
       </div>
-      <down-icon
+      <!-- <down-icon
         @click="showOtherDownloads = !showOtherDownloads"
         class="indicator"
         :class="{flip: showOtherDownloads}"
-      />
+      /> -->
     </div>
   </div>
 </template>
@@ -94,15 +94,20 @@ export default {
 <style lang="scss">
 #download {
   // background-color: white;
-  padding: 2em;
+  // padding: 2em;
   border-radius: $border-radius;
-  text-align: center;
+  text-align: left;
 
   #download-button {
-    border-bottom: 5px black solid;
+    border-bottom: 5px $colourMedium solid;
     padding-bottom: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     display: inline-block;
+    transition: all 200ms linear;
+
+    &:hover {
+      border-color: $colourLight;
+    }
 
     a {
       font-weight: 700;
@@ -110,9 +115,15 @@ export default {
   }
 
   #show-other {
+    padding: 0;
+    color: $colourMedium;
     display: block;
-    margin: 0 auto;
+    // margin: 0 auto;
     font-size: 12px;
+
+    &:hover {
+      color: $colourLight;
+    }
   }
 
   #other {
@@ -136,9 +147,9 @@ export default {
         margin: 0.5em 0;
         font-weight: 700;
 
-        a:hover {
-            border-bottom: 2px solid black;
-        }
+        // a:hover {
+        //     border-bottom: 2px solid $colourMedium;
+        // }
     }
   }
 }
@@ -148,6 +159,7 @@ export default {
     width: 40px;
     cursor: pointer;
     transition: top 200ms linear;
+    fill: $colourMedium;
 
     &.flip {
       transform: scaleY(-1);
