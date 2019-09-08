@@ -3,8 +3,10 @@
     <h1>Changelog</h1>
     <ul>
         <li v-for="{ node } in $page.allChangelog.edges" :key="node._id">
-            <h3 v-html="node.version" class="version"/>
-            <h2 v-html="node.title" class="title"/>
+            <div class="title-wrapper">
+                <h3 v-html="node.version" class="version" />
+                <h2 v-html="node.title" class="title" />
+            </div>
             <p v-html="node.content"></p>
         </li>
     </ul>
@@ -49,6 +51,11 @@ li {
     margin-bottom: 3em;
 }
 
+.title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .version {
     background-color: $colourLight;
     width: fit-content;
@@ -56,12 +63,12 @@ li {
     color: white;
     border-radius: 1em;
     font-size: 1em;
-    display: inline-block;
+    // display: inline-block;
     margin: 0 1em 0 0;
 }
 
-.title{
-    display: inline-block;
+.title {
+    // display: inline-block;
     margin: 0;
 }
 </style>
