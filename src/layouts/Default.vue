@@ -32,28 +32,26 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes gradient {
-    0% {
-        background-position: 9% 0%;
-    }
+.homepage main.container {
+    margin-top: 7em;
+    display: flex;
+}
 
-    50% {
-        background-position: 92% 100%;
-    }
-
-    100% {
-        background-position: 9% 0%;
-    }
+::selection {
+  background: $colourLight;
+  color: white;
 }
 
 html {
     background-color: $colourDark;
-    color: $colourLight;
-    // background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
-    // background: linear-gradient(45deg, #fbda61, #ff5acd, #85f2cf);
-    // background-size: 600% 600%;
-    // animation: gradient 5s ease infinite;
+    color: #a39dc1;
     min-height: 100%;
+    
+}
+
+nav {
+  margin-top: 2em;
+  color: $colourMedium;
 }
 
 main {

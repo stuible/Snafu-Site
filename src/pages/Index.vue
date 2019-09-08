@@ -14,7 +14,10 @@
     </div>
 
     <div class="col align-end">
-      <g-image id="screenshot" src="~/assets/images/screenshot.png" alt="Screenshot of Snafu"/>
+        <div id="screenshot">
+            <g-image src="~/assets/images/screenshot.png" alt="Screenshot of Snafu" />
+        </div>
+
     </div>
 </Layout>
 </template>
@@ -63,11 +66,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.homepage main.container {
-  margin-top: 7em;
-  display: flex;
-}
+<style lang="scss" scoped>
+
 #icon-container {
     max-width: 400px;
     // margin: 0 auto;
@@ -103,17 +103,6 @@ export default {
     }
 }
 
-h1 {
-    width: fit-content;
-    margin-bottom: 0;
-    color: $colourMedium;
-    transition: color 200ms linear;
-    // z-index: 100;
-
-    &:hover {
-        color: $colourLight;
-    }
-}
 
 h2 {
     margin: 0;
@@ -122,15 +111,21 @@ h2 {
     color: $colourMedium;
 }
 
-#screenshot{
-  width: 100%;
-  max-width: 600px;
-  text-align: right;
-  opacity: 0.5;
-  transition: opacity 200ms linear;
+#screenshot {
 
-  &:hover {
-    opacity: 1;
-  }
+    max-width: 650px;
+    float: right;
+    text-align: right;
+    opacity: 0.5;
+    transition: opacity 200ms linear;
+    margin-left: 5em;
+
+    img {
+        width: 100%;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
 }
 </style>

@@ -30,6 +30,14 @@ module.exports = {
         typeName: 'Content',
         route: '/:slug'
       }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'src/content/changelog/*.md',
+        typeName: 'Changelog',
+        route: '/:slug'
+      }
     }
   ],
 
