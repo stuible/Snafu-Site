@@ -2,10 +2,9 @@
 <Layout class="homepage">
     <div class="col-6">
         <div id="icon-container">
-  
-                    <logo id="logo" />
+          <logo id="logo" />
         </div>
-        <h1 @mouseenter="startGlitch" @mouseleave="stopGlitch">{{glitchedTitle}}</h1>
+        <h1>{{glitchedTitle}}</h1>
         <h2>βeta 0.1.0</h2>
         <download />
     </div>
@@ -14,7 +13,6 @@
         <div id="screenshot">
             <g-image src="~/assets/images/screenshot.png" alt="Screenshot of Snafu" />
         </div>
-
     </div>
 </Layout>
 </template>
@@ -43,19 +41,7 @@ export default {
         };
     },
     methods: {
-        glitchTitle() {
-            if (this.titleHover) {
-                // this.glitchedTitle = zalgo(this.$page.content.title);
-                setTimeout(this.glitchTitle, 50);
-            } else this.glitchedTitle = this.$page.content.title;
-        },
-        startGlitch() {
-            this.titleHover = true;
-            this.glitchTitle();
-        },
-        stopGlitch() {
-            this.titleHover = false;
-        }
+
     },
     mounted() {
         this.glitchedTitle = this.$page.content.title;
@@ -70,27 +56,6 @@ export default {
     // margin: 0 auto;
 }
 
-// #icon-wrapper {
-//     // height: 100px;
-//     width: 100%;
-//     border-radius: 30%;
-//     // border: white solid 2px;
-//     position: relative;
-//     padding-top: 100%;
-// }
-
-// #icon {
-//     position: absolute;
-//     display: flex;
-//     justify-content: center;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     // padding: 10%;
-//     max-width: 10em;
-// }
-
 #logo {
     // width: 80%;
     // padding-top: 10%;
@@ -101,6 +66,9 @@ export default {
     }
 }
 
+h1 {
+  margin-bottom: 0;
+}
 
 h2 {
     margin: 0;
@@ -120,6 +88,12 @@ h2 {
 
     img {
         width: 100%;
+        opacity: 0;
+        transition: opacity 200ms linear;
+
+        &.g-image--loaded {
+          opacity: 1;
+        }
     }
 
     &:hover {
