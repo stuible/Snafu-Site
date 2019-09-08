@@ -2,11 +2,8 @@
 <Layout class="homepage">
     <div class="col-6">
         <div id="icon-container">
-            <div id="icon-wrapper">
-                <div id="icon">
+  
                     <logo id="logo" />
-                </div>
-            </div>
         </div>
         <h1 @mouseenter="startGlitch" @mouseleave="stopGlitch">{{glitchedTitle}}</h1>
         <h2>βeta 0.1.0</h2>
@@ -73,30 +70,31 @@ export default {
     // margin: 0 auto;
 }
 
-#icon-wrapper {
-    // height: 100px;
-    width: 100%;
-    border-radius: 30%;
-    // border: white solid 2px;
-    position: relative;
-    padding-top: 100%;
-}
+// #icon-wrapper {
+//     // height: 100px;
+//     width: 100%;
+//     border-radius: 30%;
+//     // border: white solid 2px;
+//     position: relative;
+//     padding-top: 100%;
+// }
 
-#icon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    // padding: 10%;
-    max-width: 10em;
-}
+// #icon {
+//     position: absolute;
+//     display: flex;
+//     justify-content: center;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     // padding: 10%;
+//     max-width: 10em;
+// }
 
 #logo {
     // width: 80%;
     // padding-top: 10%;
+     max-width: 10em;
 
     g {
         fill: $colourMedium;
