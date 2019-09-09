@@ -8,8 +8,8 @@ import '~/assets/scss/_base.scss'
 export default function (Vue, { head }) {
   Vue.component('Layout', DefaultLayout)
 
-  // head.link.push({
-  //   rel: 'stylesheet',
-  //   href: 'https://fonts.googleapis.com/css?family=Mali:700|Nunito'
-  // })
+  head.script.push({
+    src: '/assets/js/lytics.js',
+    // body: true
+  })
 }

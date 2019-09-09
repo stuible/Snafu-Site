@@ -15,7 +15,7 @@
 
 <page-query>
 query Landing {
-  allChangelog {
+  allChangelog(sortBy: "version", order: DESC) {
     edges {
         node {
         _id,
