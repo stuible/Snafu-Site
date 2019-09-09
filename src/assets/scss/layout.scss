@@ -12,6 +12,11 @@ body {
     font-size: 13px;
 }
 
+p {
+    font-size: 1.2em;
+    max-width: 28em;
+}
+
 .col {
     // width: 50%;
     flex-grow: 1;
@@ -50,8 +55,8 @@ body {
         padding-right: 150px;
 
         &.flex {
-            display: flex;
-        }
+        display: flex;
+    }
     }
 
     body {

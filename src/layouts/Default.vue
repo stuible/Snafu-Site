@@ -54,7 +54,7 @@ export default {
 
 html {
     background-color: $colourDark;
-    color: #a39dc1;
+    color: $colourText;
     min-height: 100%;
 
 }

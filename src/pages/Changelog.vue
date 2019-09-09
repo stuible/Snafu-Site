@@ -51,6 +51,10 @@ li {
     margin-bottom: 3em;
 }
 
+p {
+    font-size: 1em;
+}
+
 .title-wrapper {
     display: flex;
     align-items: center;

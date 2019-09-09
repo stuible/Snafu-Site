@@ -1,7 +1,7 @@
 <template>
 <Layout class="help">
     <h1>Help</h1>
-    <p>There will be documentation on how to use Snafu here soon.</p>
+    <p>Documentation will appear here, as if by magic, (soon?).</p>
 </Layout>
 </template>
 
