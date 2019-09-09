@@ -19,7 +19,7 @@ function addStyleResource (rule) {
 
 module.exports = {
   siteName: `Snafu`,
-  titleTemplate: `%s - Home`,
+  titleTemplate: `Snafu - %s`,
   icon: 'src/assets/images/favicon.png',
 
   plugins: [

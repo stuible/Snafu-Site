@@ -34,6 +34,10 @@ export default {
     components: {
 
     },
+    name: 'Changelog',
+    metaInfo: {
+        title: 'Changelog',
+    },
     // data() {
 
     // },

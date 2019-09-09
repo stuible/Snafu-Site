@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import config from "~/.temp/config.js";
+// import config from "~/.temp/config.js";
 
 export default {
     computed: {
-        titleTag() {
-            return this.$route.name === "home" ? "h1" : "h6";
-        },
-        config() {
-            return config;
-        }
+        // titleTag() {
+        //     return this.$route.name === "home" ? "h1" : "h6";
+        // },
+        // config() {
+        //     return config;
+        // }
     }
 };
 </script>
@@ -64,7 +64,4 @@ nav {
     color: $colourMedium;
 }
 
-main {
-    // text-align: center;
-}
 </style>

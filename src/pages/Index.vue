@@ -34,6 +34,10 @@ export default {
         Logo,
         Download
     },
+    name: 'Home',
+    metaInfo: {
+        title: 'Home',
+    },
     data() {
         return {
             glitchedTitle: "",

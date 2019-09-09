@@ -32,6 +32,10 @@ export default {
     components: {
 
     },
+    name: 'About',
+    metaInfo: {
+        title: 'About',
+    },
     // data() {
 
     // },

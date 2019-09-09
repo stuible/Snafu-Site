@@ -15,6 +15,10 @@ export default {
     components: {
 
     },
+    name: 'Help',
+    metaInfo: {
+        title: 'Help',
+    },
     // data() {
 
     // },
