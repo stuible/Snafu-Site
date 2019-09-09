@@ -9,7 +9,7 @@ export default function (Vue, { head }) {
   Vue.component('Layout', DefaultLayout)
 
   head.script.push({
-    src: '/assets/js/lytics.js',
+    src: '/js/lytics.js',
     // body: true
   })
 }
