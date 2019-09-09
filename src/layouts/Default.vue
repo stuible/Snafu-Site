@@ -3,9 +3,9 @@
     <header class="header">
         <div class="container">
             <nav>
-                <g-link class="heading-link" to="/">Home</g-link> |
-                <g-link class="heading-link" to="/about">About</g-link> |
-                <g-link class="heading-link" to="/help">Help</g-link> |
+                <g-link class="heading-link" to="/">Home</g-link>&nbsp; | &nbsp;
+                <g-link class="heading-link" to="/about">About</g-link>&nbsp; | &nbsp;
+                <g-link class="heading-link" to="/help">Help</g-link>&nbsp; | &nbsp;
                 <g-link class="heading-link" to="/changelog">Changelog</g-link>
             </nav>
         </div>
