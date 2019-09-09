@@ -1,6 +1,7 @@
 a {
     text-decoration: none;
     color: $colourMedium;
+    transition: color 200ms linear;
 
     &:hover{
         color: $colourLight;

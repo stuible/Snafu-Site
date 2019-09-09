@@ -62,6 +62,13 @@ export default {
 
     g {
         fill: $colourMedium;
+        transition: fill 200ms linear;
+    }
+
+    &:hover {
+        g {
+            fill: $colourLight;
+        }
     }
 }
 
@@ -74,6 +81,11 @@ h2 {
     margin-bottom: 3em;
     font-size: 0.9em;
     color: $colourMedium;
+    transition: color 200ms linear;
+
+    &:hover {
+        color: $colourLight;
+    }
 }
 
 #screenshot {
