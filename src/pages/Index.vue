@@ -2,7 +2,7 @@
 <Layout class="homepage">
     <div class="col-6">
         <div id="icon-container">
-          <logo id="logo" />
+            <logo id="logo" />
         </div>
         <h1>{{glitchedTitle}}</h1>
         <h2>βeta 0.1.0</h2>
@@ -50,7 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #icon-container {
     max-width: 400px;
     // margin: 0 auto;
@@ -59,7 +58,7 @@ export default {
 #logo {
     // width: 80%;
     // padding-top: 10%;
-     max-width: 10em;
+    max-width: 10em;
 
     g {
         fill: $colourMedium;
@@ -67,7 +66,7 @@ export default {
 }
 
 h1 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 h2 {
@@ -78,13 +77,17 @@ h2 {
 }
 
 #screenshot {
-
     max-width: 650px;
     float: right;
     text-align: right;
     opacity: 0.5;
     transition: opacity 200ms linear;
     margin-left: 5em;
+    display: none;
+
+    @include breakpoint(phablet) {
+        display: block;
+    }
 
     img {
         width: 100%;
@@ -92,7 +95,7 @@ h2 {
         transition: opacity 200ms linear;
 
         &.g-image--loaded {
-          opacity: 1;
+            opacity: 1;
         }
     }
 

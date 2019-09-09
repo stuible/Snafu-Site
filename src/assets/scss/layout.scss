@@ -3,13 +3,23 @@
     max-width: 100%;
     padding: 25px;
     
-    &.flex {
-        display: flex;
-    }
+    // &.flex {
+    //     display: flex;
+    // }
 }
 
 body {
     font-size: 13px;
+}
+
+.col {
+    // width: 50%;
+    flex-grow: 1;
+
+    &.align-end {
+        // align-content: end;
+        text-align: right;
+    }
 }
 
 @include breakpoint(phone) {
@@ -38,6 +48,10 @@ body {
         max-width: map-get($breakpoints, tablet) - 100;
         padding-left: 150px;
         padding-right: 150px;
+
+        &.flex {
+            display: flex;
+        }
     }
 
     body {
@@ -61,16 +75,5 @@ body {
         max-width: map-get($breakpoints, desktophd) - 100;
         padding-left: 150px;
         padding-right: 150px;
-    }
-}
-
-
-.col {
-    // width: 50%;
-    flex-grow: 1;
-
-    &.align-end {
-        // align-content: end;
-        text-align: right;
     }
 }
