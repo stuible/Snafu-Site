@@ -28,7 +28,7 @@ module.exports = {
       options: {
         path: 'src/content/*.md',
         typeName: 'Content',
-        route: '/:slug'
+        route: '/:title'
       }
     },
     {
@@ -36,7 +36,7 @@ module.exports = {
       options: {
         path: 'src/content/changelog/*.md',
         typeName: 'Changelog',
-        route: '/:slug'
+        route: '/:title'
       }
     }
   ],
