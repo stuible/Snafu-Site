@@ -5,7 +5,7 @@
             <logo id="logo" />
         </div>
         <h1>{{glitchedTitle}}</h1>
-        <h2>βeta 0.1.0</h2>
+        <h2>βeta {{$page.allRelease.edges[0].node.version}}</h2>
         <download />
     </div>
 
@@ -21,8 +21,24 @@
 query Landing {
   content (path: "/landing") {
     title
+  },
+  allRelease(sortBy: "version", order: DESC) {
+    edges {
+        node {
+        id,
+        name,
+        body,
+        version,
+        downloads {
+            mac { url, name },
+            win { url, name },
+            linux { url, name }
+        }
+        }
+      }
   }
 }
+
 </page-query>
 
 <script>

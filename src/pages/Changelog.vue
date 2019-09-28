@@ -2,12 +2,12 @@
 <Layout class="changelog">
     <h1>Changelog</h1>
     <ul>
-        <li v-for="{ node } in $page.allChangelog.edges" :key="node._id">
+        <li v-for="{ node } in $page.allRelease.edges" :key="node.id">
             <div class="title-wrapper">
                 <h3 v-html="node.version" class="version" />
-                <h2 v-html="node.title" class="title" />
+                <h2 v-html="node.name" class="title" />
             </div>
-            <p v-html="node.content"></p>
+            <p v-html="node.body"></p>
         </li>
     </ul>
 </Layout>
@@ -15,14 +15,13 @@
 
 <page-query>
 query Landing {
-  allChangelog(sortBy: "version", order: DESC) {
+  allRelease(sortBy: "version", order: DESC) {
     edges {
         node {
-        _id,
-        title,
-        version,
-        type,
-        content
+        id,
+        name,
+        body,
+        version
         }
       }
   }

@@ -1,5 +1,6 @@
 <template>
   <div id="download">
+    <!-- {{downloadList}} -->
     <a id="download-button" :href="download.url" target="_blank">
       <div v-if="download">Download for {{download.name}}</div>
       <div v-else>Not Available For {{this.os}}</div>
@@ -14,23 +15,12 @@
           </li>
         </ul>
       </div>
-      <!-- <down-icon
-        @click="showOtherDownloads = !showOtherDownloads"
-        class="indicator"
-        :class="{flip: showOtherDownloads}"
-      /> -->
     </div>
   </div>
 </template>
 
 <static-query>
-query Downloads {
-  content (path: "/downloads") {
-   mac { url, name },
-   windows { url, name }, 
-   linux { url, name }
-  }
-}
+
 </static-query>
 
 
@@ -48,14 +38,18 @@ export default {
       showOtherDownloads: false
     };
   },
+  mounted() {},
   computed: {
+    downloadList() {
+      return this.$page.allRelease.edges[0].node.downloads;
+    },
     download() {
       switch (this.os) {
         case "Mac OS":
         case "Mac OS X":
           return {
-            name: this.$static.content.mac.name,
-            url: this.$static.content.mac.url
+            name: this.downloadList.mac.name,
+            url: this.downloadList.mac.url
           };
           break;
         case "Windows Vista":
@@ -64,15 +58,15 @@ export default {
         case "Windows 8":
         case "Windows 10":
           return {
-            name: this.$static.content.windows.name,
-            url: this.$static.content.windows.url
+            name: this.downloadList.win.name,
+            url: this.downloadList.win.url
           };
           break;
         case "Linux":
           break;
           return {
-            name: this.$static.content.linux.name,
-            url: this.$static.content.linux.url
+            name: this.downloadList.linux.name,
+            url: this.downloadList.linux.url
           };
         default:
           return false;
@@ -81,9 +75,9 @@ export default {
     },
     otherDownloads() {
       const downloads = [
-        this.$static.content.windows,
-        this.$static.content.mac,
-        this.$static.content.linux
+        this.downloadList.win,
+        this.downloadList.mac,
+        this.downloadList.linux
       ];
       return downloads.filter(download => download.name !== this.download.name);
     }
@@ -129,7 +123,8 @@ export default {
   #other {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 200ms linear, opacity 200ms linear, transform 200ms linear;
+    transition: max-height 200ms linear, opacity 200ms linear,
+      transform 200ms linear;
     transform: translateY(-10px);
     opacity: 0;
 
@@ -140,16 +135,16 @@ export default {
     }
 
     ul {
-        margin: 1em 0;
+      margin: 1em 0;
     }
 
     li {
-        margin: 0.5em 0;
-        font-weight: 700;
+      margin: 0.5em 0;
+      font-weight: 700;
 
-        // a:hover {
-        //     border-bottom: 2px solid $colourMedium;
-        // }
+      // a:hover {
+      //     border-bottom: 2px solid $colourMedium;
+      // }
     }
   }
 }

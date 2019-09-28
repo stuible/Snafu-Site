@@ -7,11 +7,12 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@gridsome/source-filesystem": "^0.5.0",
-    "@gridsome/transformer-remark": "^0.3.0",
-    "detect-browser": "^4.6.0",
-    "gridsome": "^0.6.9",
+    "@gridsome/source-filesystem": "^0.6.0",
+    "@gridsome/transformer-remark": "^0.3.4",
+    "detect-browser": "^4.7.0",
+    "gridsome": "^0.7.6",
     "normalize.css": "^8.0.1",
+    "showdown": "^1.9.0",
     "to-zalgo": "^1.0.1",
     "typeface-fira-sans": "0.0.75",
     "vue-router": "3.1.3",
