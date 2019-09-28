@@ -42,7 +42,6 @@ query Landing {
 </page-query>
 
 <script>
-var zalgo = require("to-zalgo");
 import Logo from "~/assets/images/altSnafu.svg";
 import Download from "~/components/landing/Download.vue";
 export default {
