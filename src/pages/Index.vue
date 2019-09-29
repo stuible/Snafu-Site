@@ -4,7 +4,7 @@
         <div id="icon-container">
             <logo id="logo" />
         </div>
-        <h1>{{glitchedTitle}}</h1>
+        <h1>{{$page.content.title}}</h1>
         <h2>βeta {{$page.allRelease.edges[0].node.version}}</h2>
         <download />
     </div>
@@ -20,7 +20,8 @@
 <page-query>
 query Landing {
   content (path: "/landing") {
-    title
+    title,
+    slug
   },
   allRelease(sortBy: "version", order: DESC) {
     edges {
@@ -55,15 +56,12 @@ export default {
     },
     data() {
         return {
-            glitchedTitle: "",
-            titleHover: false
         };
     },
     methods: {
 
     },
     mounted() {
-        this.glitchedTitle = this.$page.content.title;
     }
 };
 </script>
