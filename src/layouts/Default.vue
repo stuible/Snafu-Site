@@ -34,13 +34,13 @@ export default {
 </script>
 
 <style lang="scss">
-// .fade-enter-active {
-//     transition: opacity .25s;
-// }
+.fade-enter-active {
+    transition: opacity .25s;
+}
 
-// .fade-enter {
-//     opacity: 0;
-// }
+.fade-enter {
+    opacity: 0;
+}
 
 .homepage main.container {
     margin-top: 7em;
@@ -61,7 +61,7 @@ html {
 
 nav {
     margin-top: 2em;
-    color: $colourMedium;
+    color: $colourLight;
 }
 
 </style>

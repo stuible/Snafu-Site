@@ -1,11 +1,11 @@
 a {
     text-decoration: none;
-    color: $colourMedium;
+    color: $colourLight;
     transition: color 200ms linear;
 
-    &:hover{
-        color: $colourLight;
-    }
+    // &:hover{
+    //     color: $colourLight;
+    // }
 }
 
 button {
@@ -26,13 +26,13 @@ h1 {
     cursor: default;
     width: fit-content;
     margin-bottom: 0.5em;
-    color: $colourMedium;
+    color: $colourLight;
     transition: color 200ms linear;
     // z-index: 100;
 
-    &:hover {
-        color: $colourLight;
-    }
+    // &:hover {
+    //     color: $colourLight;
+    // }
 }
 
 ul {

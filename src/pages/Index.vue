@@ -73,19 +73,16 @@ export default {
 }
 
 #logo {
-    // width: 80%;
-    // padding-top: 10%;
     max-width: 10em;
+    transition: filter 300ms linear;
 
     g {
-        fill: $colourMedium;
-        transition: fill 200ms linear;
+        fill: $colourLight;
+        
     }
 
     &:hover {
-        g {
-            fill: $colourLight;
-        }
+        filter: drop-shadow(0px 0px 50px $colourLight);
     }
 }
 
@@ -97,7 +94,7 @@ h2 {
     margin: 0;
     margin-bottom: 3em;
     font-size: 0.9em;
-    color: $colourMedium;
+    color: $colourLight;
     transition: color 200ms linear;
 
     &:hover {
@@ -109,7 +106,7 @@ h2 {
     max-width: 650px;
     float: right;
     text-align: right;
-    opacity: 0.5;
+    // opacity: 0.5;
     transition: opacity 200ms linear;
     margin-left: 5em;
     display: none;

@@ -93,14 +93,14 @@ export default {
   text-align: left;
 
   #download-button {
-    border-bottom: 5px $colourMedium solid;
+    border-bottom: 5px $colourLight solid;
     padding-bottom: 1em;
     margin-bottom: 2em;
     display: inline-block;
     transition: all 200ms linear;
 
     &:hover {
-      border-color: $colourLight;
+      // border-color: $colourLight;
     }
 
     a {
@@ -110,7 +110,7 @@ export default {
 
   #show-other {
     padding: 0;
-    color: $colourMedium;
+    color: $colourLight;
     display: block;
     // margin: 0 auto;
     font-size: 12px;
