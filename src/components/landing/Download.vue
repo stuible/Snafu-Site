@@ -44,30 +44,30 @@ export default {
       return this.$page.allRelease.edges[0].node.downloads;
     },
     download() {
-      switch (this.os) {
-        case "Mac OS":
-        case "Mac OS X":
+      switch (this.os.toLowerCase()) {
+        case "mac os":
+        case "mac os x":
           return {
             name: this.downloadList.mac.name,
             url: this.downloadList.mac.url
           };
           break;
-        case "Windows Vista":
-        case "Windows 7":
-        case "Windows 8.1":
-        case "Windows 8":
-        case "Windows 10":
+        case "windows vista":
+        case "windows 7":
+        case "windows 8.1":
+        case "windows 8":
+        case "windows 10":
           return {
             name: this.downloadList.win.name,
             url: this.downloadList.win.url
           };
           break;
-        case "Linux":
-          break;
+        case "linux":
           return {
             name: this.downloadList.linux.name,
             url: this.downloadList.linux.url
           };
+          break;
         default:
           return false;
           break;
