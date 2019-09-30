@@ -11,7 +11,7 @@
 
     <div class="col align-end">
       <div id="screenshot">
-        <video ref="video" :class="{loaded: videoLoaded}" src="/video/landing.mp4"></video>
+        <video ref="video" :class="{loaded: videoLoaded}" src="/video/landing.mp4" preload="auto"></video>
       </div>
     </div>
   </Layout>
@@ -74,17 +74,19 @@ export default {
         this.updateVideo(newPosition);
       }
     },
-    handleVideoLoaded(){
-        this.videoLoaded = true
+    handleVideoLoaded() {
+      this.videoLoaded = true;
+      document.addEventListener("mousemove", this.handleMousemove);
+      this.$refs.video.removeEventListener("canplaythrough", this.handleVideoLoaded);
     }
   },
   mounted() {
-    document.addEventListener("mousemove", this.handleMousemove)
-    this.$refs.video.addEventListener("loadeddata", this.handleVideoLoaded)
+    this.$refs.video.addEventListener("canplaythrough", this.handleVideoLoaded);
+
   },
   beforeDestroy() {
-    document.removeEventListener("mousemove", this.handleMousemove)
-    this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded)
+    document.removeEventListener("mousemove", this.handleMousemove);
+    // this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded);
   }
 };
 </script>
