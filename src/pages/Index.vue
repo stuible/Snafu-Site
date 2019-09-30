@@ -129,6 +129,9 @@ h2 {
 
   video {
       width: 100%;
+      border-radius: 5px;
+    //   filter: drop-shadow(0px 0px 50px $colourLight);
+      box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
     //   padding-left: 1em;
   }
 
