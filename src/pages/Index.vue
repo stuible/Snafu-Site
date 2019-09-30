@@ -77,11 +77,11 @@ export default {
     handleVideoLoaded() {
       this.videoLoaded = true;
       document.addEventListener("mousemove", this.handleMousemove);
-      this.$refs.video.removeEventListener("canplaythrough", this.handleVideoLoaded);
+      this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded);
     }
   },
   mounted() {
-    this.$refs.video.addEventListener("canplaythrough", this.handleVideoLoaded);
+    this.$refs.video.addEventListener("loadeddata", this.handleVideoLoaded);
 
   },
   beforeDestroy() {
