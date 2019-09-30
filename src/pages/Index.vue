@@ -11,7 +11,7 @@
 
     <div class="col align-end">
       <div id="screenshot">
-        <video ref="video" src="/video/landing.mp4"></video>
+        <video ref="video" :class="{loaded: videoLoaded}" src="/video/landing.mp4"></video>
       </div>
     </div>
   </Layout>
@@ -56,7 +56,8 @@ export default {
   },
   data() {
     return {
-      videoPosition: 0
+      videoPosition: 0,
+      videoLoaded: false
     };
   },
   methods: {
@@ -66,19 +67,24 @@ export default {
     },
     handleMousemove(event) {
       let yPercent = (event.clientY - window.innerHeight) / -window.innerHeight;
-      const newPosition = Math.round(yPercent * 26)
+      const newPosition = Math.round(yPercent * 26);
 
-      if(newPosition !== this.videoPosition){
-          this.videoPosition = newPosition
-          this.updateVideo(newPosition)
-      };
+      if (newPosition !== this.videoPosition) {
+        this.videoPosition = newPosition;
+        this.updateVideo(newPosition);
+      }
+    },
+    handleVideoLoaded(){
+        this.videoLoaded = true
     }
   },
   mounted() {
-    document.addEventListener("mousemove", this.handleMousemove);
+    document.addEventListener("mousemove", this.handleMousemove)
+    this.$refs.video.addEventListener("loadeddata", this.handleVideoLoaded)
   },
-  destroyed() {
-    document.removeEventListener("mousemove", this.handleMousemove);
+  beforeDestroy() {
+    document.removeEventListener("mousemove", this.handleMousemove)
+    this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded)
   }
 };
 </script>
@@ -135,9 +141,14 @@ h2 {
   video {
     width: 100%;
     border-radius: 5px;
-    //   filter: drop-shadow(0px 0px 50px $colourLight);
+    opacity: 0;
+    transition: opacity 200ms linear;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
     //   padding-left: 1em;
+
+    &.loaded {
+      opacity: 1;
+    }
   }
 
   img {
