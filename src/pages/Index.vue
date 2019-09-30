@@ -11,13 +11,6 @@
 
     <div class="col align-end">
       <div id="screenshot">
-        <!-- <g-image
-          v-for="index in 26"
-          :class="{show: index == screenshotFrame}"
-          v-bind:key="index"
-          :src="require(`~/assets/images/screenshots/${index}.png`)"
-          alt="Screenshot of Snafu"
-        />-->
         <video ref="video" src="/video/landing.mp4"></video>
       </div>
     </div>
@@ -63,40 +56,24 @@ export default {
   },
   data() {
     return {
-      screenshotFrame: 1,
-      reverse: false
+
     };
   },
   methods: {
-    nextFrame() {
-      if (this.screenshotFrame < 26 && this.screenshotFrame > 1) {
-        if (!this.reverse) {
-          this.screenshotFrame++;
-        } else this.screenshotFrame--;
-      } else {
-        if (this.screenshotFrame == 26 && !this.reverse) {
-          this.reverse = true;
-          this.screenshotFrame--;
-        } else if (this.screenshotFrame == 1 && this.reverse) {
-          this.reverse = false;
-          this.screenshotFrame++;
-        }
-      }
-    },
     updateVideo(position) {
       this.$refs.video.currentTime = position * (this.$refs.video.duration / 26)
     },
     handleMousemove(event) {
       let yPercent = (event.clientY - window.innerHeight) / -window.innerHeight
-      console.log(yPercent * 26)
-      this.updateVideo(yPercent * 26)
+    //   console.log(Math.round(yPercent * 26))
+      this.updateVideo(Math.round(yPercent * 26))
     }
   },
   mounted() {
     document.addEventListener("mousemove", this.handleMousemove);
-    // window.setInterval(() => {
-    //   this.nextFrame()
-    // }, 100)
+  },
+  destroyed(){
+      document.removeEventListener("mousemove", this.handleMousemove);
   }
 };
 </script>
@@ -110,6 +87,7 @@ export default {
 #logo {
   max-width: 10em;
   transition: filter 300ms linear;
+  overflow: hidden;
 
   g {
     fill: $colourLight;
@@ -142,7 +120,7 @@ h2 {
   text-align: right;
   // opacity: 0.5;
   transition: opacity 200ms linear;
-  margin-left: 5em;
+  margin-left: 6em;
   display: none;
 
   @include breakpoint(phablet) {
@@ -151,6 +129,7 @@ h2 {
 
   video {
       width: 100%;
+    //   padding-left: 1em;
   }
 
   img {
