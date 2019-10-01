@@ -7,12 +7,6 @@ function addStyleResource (rule) {
       patterns: [
   path.resolve(__dirname, './src/assets/scss/variables.scss'),
   path.resolve(__dirname, './src/assets/scss/breakpoints.scss'),
-	// or if you use scss
-	// path.resolve(__dirname, './src/assets/sass/_globals.scss'),
-	// you can also use a glob if you'd prefer
-	// path.resolve(__dirname, './src/assets/sass/*.sass'),
-	// or scss
-	// path.resolve(__dirname, './src/assets/sass/*.scss'),
       ],
     })
 }
