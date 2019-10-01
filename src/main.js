@@ -13,12 +13,6 @@ const metaImage = 'https://snafu.fun/images/opengraph.jpg'
 export default function (Vue, { head }) {
   Vue.component('Layout', DefaultLayout)
 
-  // Analytics
-  head.script.push({
-    src: '/js/lytics.js',
-    // body: true
-  })
-
   // Add Meta Tags
   head.meta.push({
     name: 'keywords',
@@ -28,12 +22,16 @@ export default function (Vue, { head }) {
     name: 'description',
     content: metaDescription
   })
-
   // Add open graph meta tags
   head.meta.push({
     key: 'og:title',
     name: 'og:title',
     content: metaTitle,
+  })
+  head.meta.push({
+    key: 'og:type',
+    name: 'og:type',
+    content: 'website',
   })
   head.meta.push({
     key: 'og:description',
@@ -92,5 +90,12 @@ export default function (Vue, { head }) {
     key: 'twitter:description',
     name: 'twitter:description',
     content: metaDescription,
+  })
+
+
+  // Analytics
+  head.script.push({
+    src: '/js/lytics.js',
+    // body: true
   })
 }
