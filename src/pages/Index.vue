@@ -66,7 +66,7 @@ export default {
         position * (this.$refs.video.duration / 26);
     },
     handleMousemove(event) {
-      let yPercent = (event.clientY - window.innerHeight) / -window.innerHeight;
+      let yPercent = (event.layerY - this.$refs.video.offsetHeight) / -this.$refs.video.offsetHeight;
       const newPosition = Math.round(yPercent * 26);
 
       if (newPosition !== this.videoPosition) {
@@ -76,7 +76,7 @@ export default {
     },
     handleVideoLoaded() {
       this.videoLoaded = true;
-      document.addEventListener("mousemove", this.handleMousemove);
+      this.$refs.video.addEventListener("mousemove", this.handleMousemove);
       this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded);
     }
   },
@@ -85,7 +85,7 @@ export default {
 
   },
   beforeDestroy() {
-    document.removeEventListener("mousemove", this.handleMousemove);
+    this.$refs.video.removeEventListener("mousemove", this.handleMousemove);
     // this.$refs.video.removeEventListener("loadeddata", this.handleVideoLoaded);
   }
 };
@@ -102,13 +102,15 @@ export default {
   transition: filter 300ms linear;
   overflow: hidden;
 
-  g {
+  >g {
     fill: $colourLight;
+    transition: filter 300ms linear;
+    filter: drop-shadow(0px 0px 50px rgba($colourLight, .9));
   }
 
-  &:hover {
-    filter: drop-shadow(0px 0px 50px $colourLight);
-  }
+  // &:hover >g{
+  //   filter: drop-shadow(0px 0px 50px $colourLight);
+  // }
 }
 
 h1 {
