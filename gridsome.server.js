@@ -15,7 +15,7 @@ module.exports = function (api) {
       // console.log(item.assets)
       const mac = item.assets.find(asset => asset.name.endsWith('.dmg'))
       const win = item.assets.find(asset => asset.name.endsWith('.exe'))
-      const linux = item.assets.find(asset => asset.name.endsWith('.snap'))
+      const linux = item.assets.find(asset => asset.name.endsWith('.AppImage'))
       
       let macDownload = () => {
         if(mac) return{
