@@ -3,7 +3,8 @@
     <!-- {{downloadList}} -->
     <a id="download-button" :href="download.url" target="_blank">
       <div v-if="download">Download for {{download.name}}</div>
-      <div v-else>Not Available For {{this.os}}</div>
+      <div v-else-if="os !== 'server'">Not Available For {{this.os}}</div>
+      <div v-else>Download</div>
     </a>
     <div id="other-downloads">
       <button id="show-other" @click="showOtherDownloads = !showOtherDownloads">other platforms</button>
@@ -34,11 +35,10 @@ export default {
   },
   data() {
     return {
-      os: browser.os,
+      os: process.isClient ? browser.os : 'server',
       showOtherDownloads: false
     };
   },
-  mounted() {},
   computed: {
     downloadList() {
       return this.$page.allRelease.edges[0].node.downloads;
